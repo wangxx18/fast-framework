@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1;IE=edge">
+    <title>欢迎页</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+   <link rel="stylesheet" href="css/carsView/Toolbar.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/Common.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/Desktop.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/NoteText.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/ViewerSettings.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/jquery.minicolors.css" type="text/css">
+
+
+    <script type="text/javascript" src="js/carsView/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/carsView/jquery-ui.min.js"></script>
+
+
+    <script type="text/javascript" src="js/carsView/BaseView1031.js" id="hwvScript"></script>
+    <script type="text/javascript" src="js/carsView/jquery.minicolors.min.js"></script>
+    <script type="text/javascript" src="js/carsView/Server_Integration.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/carsView/CarsViewUi.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/carsView/CarsView.min.js" charset="utf-8"></script> 
+    
+    
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="plugins/ztree/css/zTreeStyle/zTreeStyle.css"/>
+    <script type="text/javascript" src="plugins/ztree/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="plugins/ztree/js/jquery.ztree.core.min.js"></script>
+    <script type="text/javascript" src="plugins/ztree/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="plugins/ztree/js/jquery.ztree.exedit.js"></script>
+    <script src="js/modules/bimModel/bimModel.js"></script>
+    <script src="../../plugins/layer/layer.js"></script>
+
+    <script id="viewerStartup">
+        var token;
+        window.onload = function () {
+            //TF_GK69057GK69580
+            var pro=new CarsView("temp","csr","qinghezhan_jgAq",function(data){
+            	//alert(data);
+            	
+            });
+              var pro_all;
+            pro.then(function(value){
+            	token=value;
+                 pro_all = token.addModel("Models","qinghezhan_jgBq");
+                 /*  pro_all.then(function (){
+                	token.addModel("Models","qinghezhan_jgCq");
+                });  */
+            }); 
+            
+        } 
+
+        
+        function callback(arr){
+            //console.log(arr);
+        }
+
+    </script>
+    <style> 
+		.divcss5{ } 
+		.divcss5-a{ position:absolute;width:220px;height:100%;right:0px;top:0px;
+		filter:alpha(Opacity=80);-moz-opacity:0.5;opacity: 0.75;} 
+		.divcss5-b{ filter:alpha(Opacity=50);-moz-opacity:0.5;opacity: 0.5;} 
+	</style> 
+
+</head>
+<body>
+
+   
+        <div class="divcss5" id="temp" style="width:100%;height:100%;position:relative;"></div>
+        <div class="divcss5-a">
+       			<div data-options="region:'right'" style="height:100%;border-width:0px;overflow-x:auto" id="layertTree">
+					<ul id="treeDemo" class="ztree"/>
+				</div>
+		</div>
+		<div class="divcss5-a">
+			<div id="deptLayer"  style="display:none;">
+				<div id="propertyFrame" style="VISIBILITY: visible;width:100%;">
+                        <table class="table table-bordered table-hover"
+                               style="width:100%;margin:0;font-size:12px;word-wrap:break-word;table-layout:fixed">
+                            <colgroup>
+                                <col style="width:35%">
+                                <col style="width:65%">
+                            </colgroup>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">名称</th>
+                                <td id="name" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">级别</th>
+                                <td id="level" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">类型名称</th>
+                                <td id="typeName" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">IFD编码</th>
+                                <td id="ifd" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">段落里程信息</th>
+                                <td id="distance" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">混凝土强度等级</th>
+                                <td id="dustLevel" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">体积</th>
+                                <td id="volume" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">曲面积</th>
+                                <td id="area" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">抗渗等级</th>
+                                <td id="antiLeak" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">环境等级</th>
+                                <td id="envLevel" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">EBS名称</th>
+                                <td id="ebsName" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                            <tr>
+                                <th style="text-align:left;padding: 5px 5px;">EBS编码</th>
+                                <td id="ebsCode" style="text-align:left;padding: 5px 5px;"></td>
+                            </tr>
+                        </table>
+                    </div>
+				
+				
+				
+			</div>
+  		</div>
+</body>
+
+  <script type="text/javascript">
+   	var reHeight=document.documentElement.clientHeight;
+//	document.getElementById("cc").style.height = reHeight+ 'px';
+    
+	
+	var zTreeObj;
+//	 function callback(arr){
+//         //console.log("sss");
+//     }
+     
+	//加载树2
+	$(function() {
+//		var pro=new CarsView("temp","csr","yanweiyanshiyong",callback);
+//        pro.then(function(value) {
+//            window.parent.tk=value;
+////          shidian=tk.getViewPoint();
+//            setInterval(window.parent.showModelProperty,200);
+//
+//        }, function(value) {
+//            // failure
+//        });
+       
+		var setting = {
+				//设置Setting属性，用于显示样式
+			//edit: {//设置编辑/删除 按钮
+				//enable: true,// true表示开启异步加载模式  需要设置 setting.async内的其它参数
+				//editNameSelectAll: true,  
+		        /* showRemoveBtn: true, 
+		        showRenameBtn: true  */
+			//},
+			view: {
+				dblClickExpand: false,//双击节点时，是否自动展开父节点的标识 
+				expandSpeed: "fast",//节点展开速度
+				nameIsHTML: true///设置 name 属性是否支持 HTML 脚本
+			},
+			data: {
+				simpleData: {
+					enable: true,
+					idKey: "rbimid",  
+		            pIdKey: "parentrbimid",  
+		            system:"system",  
+		            rootPId: ""
+				},
+				key:{
+					url:""
+				}
+			},
+			async: {
+				enable: true,//异步加载
+				url:"generator/modeltree/findTree",
+				autoParam:["rbimid=id"],//"level=level","name=name"异步加载时需要自动提交父节点属性的参数
+			},
+			callback:{
+				onCollapse: collapseNode, //关闭事件
+		        onExpand: expandNode,//展开事件
+		        onClick: OnClick //单击事件
+		        //onAsyncSuccess: onAsyncSuccess 
+
+			}
+		};
+		zTreeObj=$.fn.zTree.init($("#treeDemo"), setting);
+	});
+	
+	var initFlg = true;
+	function onAsyncSuccess(event, treeId, treeNode, msg) {
+		if (initFlg) {
+			if (treeNode == undefined) {
+	            var nodes = zTreeObj.getNodes();
+	        	//设置节点展开
+	            zTreeObj.expandNode(nodes[0], true, false, true);
+			} else {
+	            var nodes = treeNode.children;
+	            if (nodes[0].nodeLevel > 2) {
+	            	initFlg = false;
+	            } else {
+		        	//设置节点展开
+		            zTreeObj.expandNode(nodes[0], true, false, true);
+	            }
+			}
+		} 
+	}
+    
+	//展开事件
+	function expandNode(){
+		
+	}
+	//关闭事件
+	function collapseNode(){
+		
+	}
+	
+	//点击节点事件
+	function OnClick(event,treeId,treeNode,clickFlag){
+		//debugger;
+		// 驱动模型
+		 bimModelFocus(token, treeNode.rbimid);
+		 showModelProperty();
+		/* if (treeNode.level >= 4) {
+            bimModelFocus(token, treeNode.rbimid);
+        } */
+	}
+
+
+   // var token;  /* for: 调用图形引擎的接口 */
+	var viewPoint;  /* 视点 */
+    var lastGuid = "";
+    var bSelectSet = false;  /* 是否已经选中某构件 */
+    var bPropertyExpanded = false;  /* 属性框是否已经展开 */
+    function showModelProperty(){
+        if (token.hwv._selectionManager._selectedNodeCounts.size() > 0) {  // 点击了某构件
+            bSelectSet = true;
+            var nodeId = parseInt(Object.keys(token.hwv._selectionManager._selectedNodeCounts._map)[0]);
+            var guid = token.getGuidFromNodeId(nodeId);
+            if (guid == lastGuid) return;
+            lastGuid = guid;
+            if (guid != -1){
+                $.get('generator/modelproperty/getModelPropertyById?id=' + guid, function(data){
+                    var property = {};
+                    for (var i = 0, n = data.length; i < n; i++){
+                        var ele = data[i];
+                        if (ele.name == "名称") property.name = ele.value;
+                        else if (ele.name == "level") property.level = ele.value;
+                        else if (ele.name == "类型名称") property.typeName = ele.value;
+                        else if (ele.name == "IFD编码") property.ifd = ele.value;
+                        else if (ele.name == "段落里程信息") property.distance = ele.value;
+                        else if (ele.name == "混凝土强度等级") property.dustLevel = ele.value;
+                        else if (ele.name == "体积") property.volume = ele.value;
+                        else if (ele.name == "曲面积") property.area = ele.value;
+                        else if (ele.name == "抗渗等级") property.antiLeak = ele.value;
+                        else if (ele.name == "环境等级") property.envLevel = ele.value;
+                        else if (ele.name == "EBS名称") property.ebsName = ele.value;
+                        else if (ele.name == "EBS编码") property.ebsCode = ele.value;
+                    }
+                    clearTable();
+                    setPropertyInTable($("#name"), property.name);
+                    setPropertyInTable($('#level'), property.level);
+                    setPropertyInTable($('#typeName'), property.typeName);
+                    setPropertyInTable($('#ifd'), property.ifd);
+                    setPropertyInTable($('#distance'), property.distance);
+                    setPropertyInTable($('#dustLevel'), property.dustLevel);
+                    setPropertyInTable($('#volume'), property.volume);
+                    setPropertyInTable($('#area'), property.area);
+                    setPropertyInTable($('#antiLeak'), property.antiLeak);
+                    setPropertyInTable($('#envLevel'), property.envLevel);
+                    setPropertyInTable($('#ebsName'), property.ebsName);
+                    setPropertyInTable($('#ebsCode'), property.ebsCode);
+
+                    /* 若只有名称信息，则不显示属性（暂以level为判断依据） */
+                    if (property.level == null || property.level.length == 0) {
+                        if (bPropertyExpanded) {
+                            $('#layoutParent').layout('collapse', 'east');
+                            bPropertyExpanded = false;
+                        }
+                        return;
+                    }
+                    /* 展示属性 */
+                    if (!bPropertyExpanded) {
+                        $('#layoutParent').layout('expand', 'east');
+                        bPropertyExpanded = true;
+                    }
+                }, 'json');
+            }
+            else debugger;
+        }  // end of 点击了某构件
+        else{  // 未选中任何构件
+            if (bSelectSet) {
+                clearTable();
+                if (bPropertyExpanded) {
+                    $('#layoutParent').layout('collapse', 'east');
+                    bPropertyExpanded = false;
+                }
+                bSelectSet = false;
+                lastGuid = "";
+            }
+        }
+        
+        layer.open({
+            type: 1,
+            offset: '50px',
+            skin: 'layui-layer-molv',
+            title: "属性说明",
+            area: ['300px', '450px'],
+            shade: 0,
+            maxmin: true,
+            shadeClose: false,
+            content: jQuery("#deptLayer"),
+            //btn: ['确定', '取消'],
+            btn1: function (index) {
+           	 alert(11);
+                var node = ztree.getSelectedNodes();
+                //选择上级部门
+                vm.dept.parentId = node[0].deptId;
+                vm.dept.parentName = node[0].name;
+                layer.close(index);
+            }
+        });
+        
+    }
+
+    function clearTable(){
+        $("#propertyFrame td:nth-child(2)").empty();
+    }
+
+    function propPaneCollapse(){
+        bPropertyExpanded = false;
+    }
+
+    function propPaneExpand(){
+        bPropertyExpanded = true;
+    }
+
+    /**
+     * 设置属性框中的某个属性，若为空，则隐藏该属性行
+     * @param tdObj     属性值所在的 TD，如：$("#name")
+     * @param propVal   属性值
+     */
+    function setPropertyInTable(tdObj, propVal){
+        if (tdObj == null) return;
+        if (propVal == null || propVal.trim().length == 0) {
+            tdObj.parent().hide();
+        }
+        else {
+            tdObj.html(propVal.trim());
+            tdObj.parent().show();
+        }
+    }
+
+    var bSouthMaximized = false;
+    var southCollapseBtn = null;  /* easy-ui 自带的向下收缩按钮 */
+    var southMaximizeBtn = null;  /* 自定义的向上最大化按钮 */
+    var mainDivHeight = 0;
+    var mainDivParentHeight = 0;
+    var mainDivParentTop = 0;
+    function expandLayoutSouth() {
+        if (!bSouthMaximized) {
+            /* 隐藏“模型”区域 */
+            $('#modelPane').parent().css('display', 'none');
+            /* 隐藏“属性”框 */
+            $('#propertyPane').parent().css('display', 'none');  /* 展开后的属性框 */
+            $("#layoutParent").find('.layout-expand-east').css('display', 'none');  /* 未展开的属性框 */
+            /* 最大化“综合展示”区域 */
+            var panelHeaderHeight = $('#maindiv').parent().find('.panel-header').css('height');
+            mainDivHeight = $('#maindiv').css('height');
+            $('#maindiv').css('height', '100%');
+            var mainDivMaxHeight = $('#maindiv').css('height');
+            var setHeight = mainDivMaxHeight.replace('px','') - panelHeaderHeight.replace('px','');
+            $('#maindiv').css('height', setHeight + 'px');
+            mainDivParentHeight = $('#maindiv').parent().css('height');  /* 设置父高 */
+            $('#maindiv').parent().css('height', '100%');
+            mainDivParentTop = $('#maindiv').parent().css('top');
+            $('#maindiv').parent().css('top', '0px');
+            /* 保存 easy-ui 的向下收缩按钮 */
+            southCollapseBtn = $('#maindiv').parent().find('.layout-button-down');
+            /* 隐藏 easy-ui 的向下收缩按钮 */
+            southCollapseBtn.css('display', 'none');
+            /* 保存“最大化”按钮 */
+            southMaximizeBtn = $('#maindiv').parent().find('.layout-button-up');
+            /* 更改“最大化”按钮的样式为“DOWN” */
+            southMaximizeBtn.attr('class', 'layout-button-down');
+            /* 设置标志位 */
+            bSouthMaximized = true;
+        }
+        else {
+            /* 显示“模型”区域 */
+            $('#modelPane').parent().css('display', '');
+            /* 显示“属性”框 */
+            if (bPropertyExpanded)
+                $('#propertyPane').parent().css('display', '');  /* 展开后的属性框 */
+            $("#layoutParent").find('.layout-expand-east').css('display', '');  /* 未展开的属性框 */
+            /* 恢复“综合展示”区域 */
+            $('#maindiv').css('height', mainDivHeight);
+            $('#maindiv').parent().css('height', '');
+            $('#maindiv').parent().css('top', mainDivParentTop);
+            /* 显示 easy-ui 的向下收缩按钮 */
+            southCollapseBtn.css('display', '');
+            /* 更改“最大化”按钮的样式为“UP” */
+            southMaximizeBtn.attr('class', 'layout-button-up');
+            /* 设置标志位 */
+            bSouthMaximized = false;
+        }
+    }
+
+    /**
+     * 保持“综合展示”区域最大化
+     * */
+    setInterval(adjustOnResize, 500);
+    function adjustOnResize() {
+        if (bSouthMaximized) {
+            /* 最大化“综合展示”区域 */
+            $('#maindiv').parent().css('top', '0px');
+            $('#maindiv').parent().css('height', '100%');
+            var panelHeaderHeight = $('#maindiv').parent().find('.panel-header').css('height');
+            $('#maindiv').css('height', '100%');
+            var mainDivMaxHeight = $('#maindiv').css('height');
+            var setHeight = mainDivMaxHeight.replace('px','') - panelHeaderHeight.replace('px','');
+            $('#maindiv').css('height', setHeight + 'px');
+            /* 改变“属性”框的位置到最右侧 */
+            var propPaneCollapse = $("#layoutParent").find('.layout-expand-east');
+            var left = $('#layoutParent').width() - propPaneCollapse.width();
+            propPaneCollapse.css('left', left + 'px');
+            var propPaneExpand = $('#propertyPane').parent();
+            left = $('#layoutParent').width() - propPaneExpand.width();
+            propPaneExpand.css('left', left + 'px');
+        }
+    }
+
+
+    /***************************
+     * 以下仅临时为演示用
+     */
+    var allRingsGuids = new Array();  /* 所有环的 rbimid */
+    var movingIndex = 0;
+    function startRiskSimulate() {
+        movingIndex = 0;
+        allRingsGuids = new Array();
+        if (intervalId != null)
+            clearInterval(intervalId);
+        if (timerSubway != null)
+            clearTimeout(timerSubway);
+        if (timerHouse != null)
+            clearTimeout(timerHouse);
+
+        var guids = new Array();
+        guids.push("F4E4032C-6741-4385-A855-5F16B1A628A8");  /* 根结点 */
+        token.setTransparencyWithGuids(guids, 0.4);
+        token.setModelColorWithGuids(guids, 200, 200, 200);
+        var riskGuids = new Array();
+        riskGuids.push("ff3fe98e-2e4d-4740-a4bf-e65b0f3e4953");  // 13号线
+//        riskGuids.push("53204859-e6e6-469f-afe7-246ee5651d42");  // 房子
+        token.setTransparencyWithGuids(riskGuids, 1);  /* 不透明 */
+        token.setModelColorWithGuids(riskGuids, 255, 255, 255);
+        token.setHiddenWithGuids(riskGuids, false);
+
+        allRingsGuids.push("D891C125-DC1A-4736-AD8D-1E02347E14E1");
+        allRingsGuids.push("862D5F38-616C-4281-BC4E-56793BCB8F17");
+        allRingsGuids.push("0E87572B-5413-47f3-BC17-0A3EF244928B");
+        allRingsGuids.push("64763AD3-6AB4-438a-8505-1895BF4BCA0C");
+        allRingsGuids.push("4AD60F77-5CCE-48ac-AC8B-E28846A6C73C");
+        allRingsGuids.push("2A5E3478-4829-468c-A877-9773BB0920F7");
+        allRingsGuids.push("AAD81C9C-525E-44f6-A830-C9545FFEFD7F");
+        allRingsGuids.push("AC21220C-5989-4bac-898F-D07F815CA671");
+        allRingsGuids.push("E07F91C3-B4BB-4455-8092-54EBCBB3BBBB");
+        allRingsGuids.push("0E255CB9-E7EF-4eed-B2F8-9824493B7A19");
+        allRingsGuids.push("663D40F3-2922-4cf0-8811-D35D6EBF315E");
+        allRingsGuids.push("071CE833-FE2B-45e0-8C77-334BE734D4AE");
+        allRingsGuids.push("C780227D-9958-4a9b-9A39-AA22F3F0E841");
+        allRingsGuids.push("5F11A52D-B53D-4d18-9CFA-97463239AA51");
+        allRingsGuids.push("C0058E43-4C18-4299-9A2F-9AABBEE0837A");
+        allRingsGuids.push("C660D5E9-DD7B-4dfe-BE82-124B62646591");
+        allRingsGuids.push("4724A982-DB69-4533-9B75-ED80C71D262F");
+        allRingsGuids.push("9A48B873-5F34-4091-8C72-0F4F240E3A2F");
+        allRingsGuids.push("DFDA9B7A-4239-4ba6-B85D-0E4C3DE2B9D5");
+        allRingsGuids.push("F7182CBC-0C63-4796-85BD-2532570D5C2E");
+        allRingsGuids.push("9359C7BF-DF5F-4b8d-9912-1C0E4E6A967F");
+        allRingsGuids.push("803141E6-A718-4b38-80FD-02D5659E2DE7");
+        allRingsGuids.push("5716A5A4-686A-403f-A13C-6C95B8DBF6A8");
+        allRingsGuids.push("F03F1BEE-8C3C-4e91-AAFE-958D7B2FACB3");
+        allRingsGuids.push("B8B44E0D-7DFB-43c2-A850-A2E7990B3E12");
+        allRingsGuids.push("5B9AA73F-9C1A-41a2-A288-0638DD29479C");
+        allRingsGuids.push("01AF042D-FDE1-44fa-8186-D2D08623975E");
+        allRingsGuids.push("C0030DD8-1AF4-48d7-B5B4-44F0BA2CFACB");
+        allRingsGuids.push("6C2467A6-69DA-4e89-BCF9-03979B255D6A");
+        allRingsGuids.push("AF0B2E84-3A3D-47ea-9359-62F2DFD7480C");
+        allRingsGuids.push("F2641FDF-A083-4700-A8EF-0A182EF23A56");
+        allRingsGuids.push("E11FC596-E600-4d79-BDD9-EBBD8FF5DAC3");
+        allRingsGuids.push("BBCA6DE8-0A4B-44dc-BE37-62FF9D0EA24E");
+        allRingsGuids.push("EAFA7865-32C9-45cd-81C2-6A4F762891B8");
+        allRingsGuids.push("BD076895-7600-4a33-AC55-F5349AC55F61");
+        allRingsGuids.push("2049F80E-49B2-4724-AC09-03830278F7F3");
+        allRingsGuids.push("AEC833B2-FF48-480d-B303-689CE07CB170");
+        allRingsGuids.push("B081E731-E5FF-4a3d-AC52-34418ACA1E93");
+        allRingsGuids.push("B4672809-3526-4bfa-A5D8-C79005F9CC0D");
+        allRingsGuids.push("9C678999-9DB3-4bae-B38B-46EA659B4E8E");
+        allRingsGuids.push("C3315998-41D0-46aa-9314-208F189D72C4");
+        allRingsGuids.push("C8D6B78F-7558-4a6e-9FBB-9C3414A4F477");
+        allRingsGuids.push("CE90393F-DBAB-4bfe-9338-BCE033869211");
+        allRingsGuids.push("261BCB14-7640-4be2-B552-2131513473BB");
+        allRingsGuids.push("2F559F63-7E41-4357-9B4C-F6E33F94DFBF");
+        allRingsGuids.push("1D082B08-32F9-4948-99EF-91158CC31D9D");
+        allRingsGuids.push("58164140-E6C4-4bc7-BBC2-81C33531FD94");
+        allRingsGuids.push("5D37A2AF-0558-4172-9E63-59B3A592BE07");
+        allRingsGuids.push("30F572A0-A1D3-425d-8F29-7C2C9F28A2C1");
+        intervalId = setInterval(ringForward, 300);
+    }
+    var intervalId;
+    var timerSubway, timerHouse;
+    var flashIntervalSubway = 100;
+    var flashIntervalHouse = 100;
+    function ringForward() {
+        var guids = new Array();
+        guids.push(allRingsGuids[movingIndex]);
+        token.setTransparencyWithGuids(guids, 1);
+        token.setModelColorWithGuids(guids, 0, 255, 255);
+        if (movingIndex == 30) {
+            timerSubway = setTimeout(flashSubway, flashIntervalSubway);
+            var riskGuids = new Array();
+            riskGuids.push("ff3fe98e-2e4d-4740-a4bf-e65b0f3e4953");  // 13号线
+            token.setHiddenWithGuids(riskGuids, true);
+        }
+        else if (movingIndex == 40) {
+//            timerHouse = setTimeout(flashHouse, flashIntervalHouse);
+        }
+        movingIndex++;
+        if (movingIndex == 60) {
+            clearTimeout(timerSubway);
+            clearTimeout(timerHouse);
+            clearInterval(intervalId);
+            timerSubway = null;
+            timerHouse = null;
+            intervalId = null;
+            token.unSetAllModelColor();
+            var riskGuids = new Array();
+            riskGuids.push("ff3fe98e-2e4d-4740-a4bf-e65b0f3e4953");  // 13号线
+            token.setHiddenWithGuids(riskGuids, false);
+//            var resetGuids = new Array();
+//            resetGuids.push("ff3fe98e-2e4d-4740-a4bf-e65b0f3e4953");
+//            resetGuids.push("53204859-e6e6-469f-afe7-246ee5651d42");
+//            token.setModelColorWithGuids(resetGuids, 255, 255, 255);
+        }
+    }
+    var bIsRedSubway = false;
+    function flashSubway() {
+        var guids = new Array();
+        guids.push("ff3fe98e-2e4d-4740-a4bf-e65b0f3e4953");
+        if (!bIsRedSubway) {
+            token.setModelColorWithGuids(guids, 255, 0, 0);
+            bIsRedSubway = true;
+        }
+        else {
+            token.setModelColorWithGuids(guids, 255, 255, 255);
+            bIsRedSubway = false;
+        }
+        timerSubway = setTimeout(flashSubway, flashIntervalSubway);
+    }
+    var bIsRedHouse = false;
+    function flashHouse() {
+        var guids = new Array();
+        guids.push("53204859-e6e6-469f-afe7-246ee5651d42");
+        if (!bIsRedHouse) {
+            token.setModelColorWithGuids(guids, 255, 0, 0);
+            bIsRedHouse = true;
+        }
+        else {
+            token.setModelColorWithGuids(guids, 255, 255, 255);
+            bIsRedHouse = false;
+        }
+        timerHouse = setTimeout(flashHouse, flashIntervalHouse);
+    }
+    /**
+     * 以上仅临时为演示用
+     ****************************/
+	
+     
+    
+     
+    
+     layer.open({
+         type: 1,
+         offset: 'rb',
+         skin: 'divcss5-b',
+         title: "结构树",
+         area: ['300px', '100%'],
+         shade: 0,
+         shadeClose: false,
+         maxmin: true,
+         content: jQuery("#layertTree"),
+         //btn: ['确定', '取消'],
+         /* btn1: function (index) {
+             var node = ztree.getSelectedNodes();
+             //选择上级部门
+             vm.dept.parentId = node[0].deptId;
+             vm.dept.parentName = node[0].name;
+             layer.close(index);
+         } */
+     });
+    
+    </script>
+
+</html>

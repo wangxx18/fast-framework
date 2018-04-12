@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cars.bim.generator.dao.TbLeaveDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cars.bim.generator.entity.TbLeaveEntity" id="tbLeaveMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="beginDate" column="begin_date"/>
+        <result property="endDate" column="end_date"/>
+        <result property="totalDate" column="total_date"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="createDate" column="create_date"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.cars.bim.generator.entity.TbLeaveEntity">
+		select * from tb_leave where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.cars.bim.generator.entity.TbLeaveEntity">
+		select * from tb_leave
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from tb_leave 
+	</select>
+	 
+	<insert id="save" parameterType="com.cars.bim.generator.entity.TbLeaveEntity">
+		insert into tb_leave
+		(
+			`id`, 
+			`user_id`, 
+			`begin_date`, 
+			`end_date`, 
+			`total_date`, 
+			`beizhu`, 
+			`create_date`, 
+			`status`
+		)
+		values
+		(
+			#{id}, 
+			#{userId}, 
+			#{beginDate}, 
+			#{endDate}, 
+			#{totalDate}, 
+			#{beizhu}, 
+			#{createDate}, 
+			#{status}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.cars.bim.generator.entity.TbLeaveEntity">
+		update tb_leave 
+		<set>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="beginDate != null">`begin_date` = #{beginDate}, </if>
+			<if test="endDate != null">`end_date` = #{endDate}, </if>
+			<if test="totalDate != null">`total_date` = #{totalDate}, </if>
+			<if test="beizhu != null">`beizhu` = #{beizhu}, </if>
+			<if test="createDate != null">`create_date` = #{createDate}, </if>
+			<if test="status != null">`status` = #{status}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from tb_leave where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from tb_leave where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>

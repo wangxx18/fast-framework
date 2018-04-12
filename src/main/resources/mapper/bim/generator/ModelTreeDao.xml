@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cars.bim.generator.dao.ModelTreeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cars.bim.generator.entity.ModelTreeEntity" id="modelTreeMap">
+        <result property="rbimid" column="rbimid"/>
+        <result property="parentrbimid" column="parentrbimid"/>
+        <result property="name" column="name"/>
+        <result property="isParent" column="isleafnode"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.cars.bim.generator.entity.ModelTreeEntity">
+		select * from model_tree where rbimid = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.cars.bim.generator.entity.ModelTreeEntity">
+		select * from model_tree
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by rbimid desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+	
+	<select id="findTree" resultType="com.cars.bim.generator.entity.ModelTreeEntity" parameterType="java.lang.String">
+		select  
+		s.rbimid ,
+		s.parentrbimid,
+		s.name,
+		case 
+		when s.isleafnode = 0 then 'true'
+		when s.isleafnode = 1 then 'false'
+		end as isParent
+		from model_tree s 
+		where s.parentrbimid = #{id} 
+	</select>
+	
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from model_tree 
+	</select>
+	 
+	<insert id="save" parameterType="com.cars.bim.generator.entity.ModelTreeEntity">
+		insert into model_tree
+		(
+			`rbimid`, 
+			`parentrbimid`, 
+			`name`, 
+			`isleafnode`
+		)
+		values
+		(
+			#{rbimid}, 
+			#{parentrbimid}, 
+			#{name}, 
+			#{isParent}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.cars.bim.generator.entity.ModelTreeEntity">
+		update model_tree 
+		<set>
+			<if test="parentrbimid != null">`parentrbimid` = #{parentrbimid}, </if>
+			<if test="name != null">`name` = #{name}, </if>
+			<if test="isParent != null">`isleafnode` = #{isParent}</if>
+		</set>
+		where rbimid = #{rbimid}
+	</update>
+	
+	<delete id="delete">
+		delete from model_tree where rbimid = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from model_tree where rbimid in 
+		<foreach item="rbimid" collection="array" open="(" separator="," close=")">
+			#{rbimid}
+		</foreach>
+	</delete>
+
+</mapper>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1;IE=edge">
+    <title>欢迎页</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+
+   <link rel="stylesheet" href="css/carsView/Toolbar.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/Common.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/Desktop.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/NoteText.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/ViewerSettings.css" type="text/css" />
+    <link rel="stylesheet" href="css/carsView/jquery.minicolors.css" type="text/css">
+
+
+    <script type="text/javascript" src="js/carsView/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/carsView/jquery-ui.min.js"></script>
+
+
+    <script type="text/javascript" src="js/carsView/BaseView1031.js" id="hwvScript"></script>
+    <script type="text/javascript" src="js/carsView/jquery.minicolors.min.js"></script>
+    <script type="text/javascript" src="js/carsView/Server_Integration.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/carsView/CarsViewUi.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/carsView/CarsView.min.js" charset="utf-8"></script>  
+
+    <script id="viewerStartup">
+        var tk;
+        window.onload = function () {
+            //TF_GK69057GK69580
+            var pro=new CarsView("temp","csr","axis20171130",function(data){
+            	alert(data);
+            	
+            });
+           /*  var pro_all;
+            pro.then(function(value){
+                tk=value;
+                pro_all = tk.addModel("Models","qinghezhan_jgBq");
+                pro_all.then(function (){
+                	tk.addModel("Models","qinghezhan_jgCq");
+                });
+            }); */
+
+        }
+
+        
+        function callback(arr){
+            //console.log(arr);
+        }
+
+    </script>
+
+</head>
+<body>
+
+    
+   
+        <div id="temp" style="width:100%;height:100%;position:relative;"></div>
+   
+</body>
+</html>

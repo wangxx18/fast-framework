@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cars.bim.generator.dao.TbOvertimeDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.cars.bim.generator.entity.TbOvertimeEntity" id="tbOvertimeMap">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="beginDate" column="begin_date"/>
+        <result property="totalDate" column="total_date"/>
+        <result property="beizhu" column="beizhu"/>
+        <result property="createDate" column="create_date"/>
+    </resultMap>
+
+	<select id="queryObject" resultType="com.cars.bim.generator.entity.TbOvertimeEntity">
+		select * from tb_overtime where id = #{value}
+	</select>
+
+	<select id="queryList" resultType="com.cars.bim.generator.entity.TbOvertimeEntity">
+		select * from tb_overtime
+        <choose>
+            <when test="sidx != null and sidx.trim() != ''">
+                order by ${sidx} ${order}
+            </when>
+			<otherwise>
+                order by id desc
+			</otherwise>
+        </choose>
+		<if test="offset != null and limit != null">
+			limit #{offset}, #{limit}
+		</if>
+	</select>
+	
+ 	<select id="queryTotal" resultType="int">
+		select count(*) from tb_overtime 
+	</select>
+	 
+	<insert id="save" parameterType="com.cars.bim.generator.entity.TbOvertimeEntity">
+		insert into tb_overtime
+		(
+			`id`, 
+			`user_id`, 
+			`begin_date`, 
+			`total_date`, 
+			`beizhu`, 
+			`create_date`
+		)
+		values
+		(
+			#{id}, 
+			#{userId}, 
+			#{beginDate}, 
+			#{totalDate}, 
+			#{beizhu}, 
+			#{createDate}
+		)
+	</insert>
+	 
+	<update id="update" parameterType="com.cars.bim.generator.entity.TbOvertimeEntity">
+		update tb_overtime 
+		<set>
+			<if test="userId != null">`user_id` = #{userId}, </if>
+			<if test="beginDate != null">`begin_date` = #{beginDate}, </if>
+			<if test="totalDate != null">`total_date` = #{totalDate}, </if>
+			<if test="beizhu != null">`beizhu` = #{beizhu}, </if>
+			<if test="createDate != null">`create_date` = #{createDate}</if>
+		</set>
+		where id = #{id}
+	</update>
+	
+	<delete id="delete">
+		delete from tb_overtime where id = #{value}
+	</delete>
+	
+	<delete id="deleteBatch">
+		delete from tb_overtime where id in 
+		<foreach item="id" collection="array" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</delete>
+
+</mapper>
